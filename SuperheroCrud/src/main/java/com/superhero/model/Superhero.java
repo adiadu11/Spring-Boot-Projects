@@ -1,10 +1,20 @@
-package com.sueprhero.model;
+package com.superhero.model;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+
+@Entity
 public class Superhero
 {
+	@Id
+	@GeneratedValue
 	private int sid;
+	
 	private String name;
+	
 	private String power;
+	
 	public int getSid() {
 		return sid;
 	}
