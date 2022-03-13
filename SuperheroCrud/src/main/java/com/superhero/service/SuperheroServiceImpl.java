@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.superhero.exception.ResourceNotFoundException;
 import com.superhero.model.Superhero;
 import com.superhero.repository.SuperheroRepo;
 
@@ -23,7 +24,7 @@ public class SuperheroServiceImpl implements SuperheroService
 	@Override
 	public Superhero getSuperhero(int hid)
 	{
-		return repo.findById(hid).orElse(null);
+		return repo.findById(hid).orElseThrow(() -> new ResourceNotFoundException("Superhero not found with Id: " + hid));
 	}
 
 	@Override
@@ -35,7 +36,8 @@ public class SuperheroServiceImpl implements SuperheroService
 	@Override
 	public String deleteSuperhero(int hid)
 	{
-		repo.deleteById(hid);
+		Superhero hero = repo.findById(hid).orElseThrow(() -> new ResourceNotFoundException("Superhero not found with Id: " + hid));
+		repo.delete(hero);
 		return "Deleted: " + hid;
 	}
 
