@@ -2,6 +2,8 @@ package com.superhero.model;
 
 import java.util.List;
 
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -19,7 +21,7 @@ public class SuperheroController
 	SuperheroService superheroService;
 	
 	@PostMapping("superhero")
-	public Superhero addSuperhero(@RequestBody Superhero hero)
+	public Superhero addSuperhero(@Valid @RequestBody Superhero hero)
 	{
 		return superheroService.addSuperhero(hero);
 	}
@@ -43,7 +45,7 @@ public class SuperheroController
 	}
 	
 	@PutMapping("superhero")
-	public Superhero updateSuperhero(@RequestBody Superhero hero)
+	public Superhero updateSuperhero(@Valid @RequestBody Superhero hero)
 	{
 		return superheroService.updateSuperhero(hero);
 	}

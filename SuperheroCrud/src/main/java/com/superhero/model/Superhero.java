@@ -3,6 +3,9 @@ package com.superhero.model;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.Size;
+
 
 @Entity
 public class Superhero
@@ -11,6 +14,8 @@ public class Superhero
 	@GeneratedValue
 	private int sid;
 	
+	@NotBlank(message="Name cannot be blank!")
+	@Size(min=2, message="Name length should be at least 2.")
 	private String name;
 	
 	private String power;
