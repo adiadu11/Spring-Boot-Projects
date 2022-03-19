@@ -25,8 +25,8 @@ public class LoginController
 	@Autowired
 	MyUserDetailsService userDetailsService;
 	
-	@PostMapping("/login")
-	public ResponseEntity<?> login(@RequestBody LoginRequest loginRequest)
+	@PostMapping("/authenticate")
+	public ResponseEntity<?> authenticate(@RequestBody LoginRequest loginRequest)
 	{
 		//This can throw BadCredentialsException
 		authenticationManager.authenticate(
