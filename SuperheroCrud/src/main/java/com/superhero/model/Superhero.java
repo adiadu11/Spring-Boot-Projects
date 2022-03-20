@@ -20,6 +20,19 @@ public class Superhero
 	
 	private String power;
 	
+	public Superhero()
+	{
+	}
+	
+	public Superhero(int sid,
+			@NotBlank(message = "Name cannot be blank!") @Size(min = 2, message = "Name length should be at least 2.") String name,
+			String power)
+	{
+		this.sid = sid;
+		this.name = name;
+		this.power = power;
+	}
+	
 	public int getSid() {
 		return sid;
 	}

@@ -12,6 +12,7 @@ import com.superhero.repository.SuperheroRepo;
 @Service
 public class SuperheroServiceImpl implements SuperheroService
 {
+
 	@Autowired
 	SuperheroRepo repo;
 
